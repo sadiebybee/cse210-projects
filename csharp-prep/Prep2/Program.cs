@@ -9,7 +9,7 @@ class Program
         // Ask the user for their grade percentage, then write a series of if-elif-else statements 
         // to print out the appropriate letter grade. 
 
-        Console.WriteLine("What is your grade percentage? ");
+        Console.Write("What is your grade percentage? ");
         string grade = Console.ReadLine();
         int percent = int.Parse(grade);
 
