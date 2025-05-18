@@ -1,5 +1,11 @@
 using System;
 using JournalProject;
+
+// For the stretch challenge I added an extra question at the 
+// end of the entry that asks the user for their current mood.
+// Their mood, along with the rest of the entry will be saved
+// to the file.
+
 class Program
 {
     static void Main(string[] args)
@@ -19,9 +25,13 @@ class Program
             Console.WriteLine("3. Save Journal");
             Console.WriteLine("4. Load Journal");
             Console.WriteLine("5. Quit");
+            Console.WriteLine();
+
 
             Console.Write("Please pick an option (1-5) ");
             string choice = Console.ReadLine();
+            Console.WriteLine();
+
 
             switch (choice)
             {
@@ -48,7 +58,7 @@ class Program
 
                 case "5":
                     running = false;
-                    Console.WriteLine("Goodbye!");
+                    Console.WriteLine("Goodbye, see you next time!");
                     Console.WriteLine();
                     break;
 

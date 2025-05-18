@@ -19,8 +19,13 @@ namespace JournalProject {
             Console.Write("> ");
             string content = Console.ReadLine();
 
-            Entry entry = new Entry(dateInput, prompt, content);
+            // Stretch Challenge
+            Console.Write("What is your mood today? (ex: happy) ");
+            string mood = Console.ReadLine();
+
+            Entry entry = new Entry(dateInput, prompt, content, mood);
             entries.Add(entry);
+
         }
 
         public void DisplayEntries()
@@ -44,6 +49,7 @@ namespace JournalProject {
                         writer.WriteLine(entry.Date);
                         writer.WriteLine(entry.Prompt);
                         writer.WriteLine(entry.Response);
+                        writer.WriteLine(entry.Mood);
                     }
                 }
                 Console.WriteLine($"Journal entries saved to {filename}");
@@ -67,7 +73,8 @@ namespace JournalProject {
                         string dateString = reader.ReadLine();
                         string prompt = reader.ReadLine();
                         string response = reader.ReadLine();
-                        Entry entry = new Entry(dateString, prompt, response);
+                        string mood = reader.ReadLine();
+                        Entry entry = new Entry(dateString, prompt, response, mood);
                         entries.Add(entry);
                     }
                 }
