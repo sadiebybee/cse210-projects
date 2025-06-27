@@ -74,7 +74,7 @@ public class QuestManager
             Console.WriteLine($"Error saving goals to {filename}: {e.Message}");
         }
     }
-    
+
     public void LoadFromFile()
     {
         Console.Write("What is the filename for the goal file? ");
@@ -130,6 +130,33 @@ public class QuestManager
             Score += pointsEarned;
 
             Console.WriteLine($"You earned {pointsEarned} points!");
+        }
+        else
+        {
+            Console.WriteLine("Invalid selection.");
+        }
+    }
+
+    public void DeleteGoal()
+    {
+        if (goals.Count == 0)
+        {
+            Console.WriteLine("There are no goals to delete.");
+            return;
+        }
+
+        Console.WriteLine("Which goal would you like to delete?");
+        for (int i = 0; i < goals.Count; i++)
+        {
+            Console.WriteLine($"{i + 1}. {goals[i].GoalStatus()}");
+        }
+
+        Console.Write("Enter the number of the goal to delete: ");
+        if (int.TryParse(Console.ReadLine(), out int index) &&
+            index >= 1 && index <= goals.Count)
+        {
+            goals.RemoveAt(index - 1);
+            Console.WriteLine("Goal successfully deleted.");
         }
         else
         {

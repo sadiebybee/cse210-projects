@@ -1,5 +1,10 @@
 using System;
 
+// For the Stretch Challenge, I added a delete goal option in the menu,
+// I added an emoji on the EternalGoal that will show it is infinate,
+// and I also added motiviational quotes for when you enter the program
+// and when you complete a goal.
+
 class Program
 {
     static void Main(string[] args)
@@ -22,7 +27,8 @@ class Program
             Console.WriteLine("3. Save Goals");
             Console.WriteLine("4. Load Goals");
             Console.WriteLine("5. Record Event");
-            Console.WriteLine("6. Quit");
+            Console.WriteLine("6. Delete Goal");
+            Console.WriteLine("7. Quit");
             Console.WriteLine();
 
             Console.Write("Please pick an option: ");
@@ -57,6 +63,10 @@ class Program
                     break;
 
                 case "6":
+                    questManager.DeleteGoal();
+                    break;
+
+                case "7":
                     running = false;
                     Console.WriteLine("Goodbye, see you next time!");
                     Console.WriteLine();
