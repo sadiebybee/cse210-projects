@@ -1,7 +1,7 @@
 using System;
 
 // For the Stretch Challenge, I added a delete goal option in the menu,
-// I added an emoji on the EternalGoal that will show it is infinate,
+// I added an emoji on the EternalGoal that will show it is infinate goal,
 // and I also added motiviational quotes for when you enter the program
 // and when you complete a goal.
 
