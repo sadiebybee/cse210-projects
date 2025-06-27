@@ -1,0 +1,4 @@
+150
+Simple|Complete EternalQuest Homework|Complete homework assignment for CSE-210|50|True
+Eternal|Study Scriptures|Study scriptures for at least 30 minutes a day|50|False
+Checklist|Attend the Temple|Attend temple and complete any ordinance|50|5|500|1

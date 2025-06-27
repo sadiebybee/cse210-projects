@@ -2,10 +2,29 @@ public class QuestManager
 {
     private List<Goal> goals = new List<Goal>();
     public int Score { get; set; }
+        private List<string> quotes = new List<string>
+    {
+        "Believe you can and you're halfway there. — Theodore Roosevelt",
+        "The most effective way to do it, is to do it. — Amelia Earhart",
+        "Nothing is impossible, the word itself says 'I'm possible'! — Audrey Hepburn",
+        "The secret of getting ahead is getting started. - Mark Twain",
+        "You just can't beat the person who never gives up. - Babe Ruth",
+        "If we did all the things we are capable of, we would literally astound ourselves. - Thomas A. Edison",
+        "It's in the doing, not just the thinking, that we accomplish our goals. - Thomas S. Monson",
+        "By small and simple things are great things brought to pass. - Alma 37:6",
+        "Keep your eye on them. Work consistently towards achieving them. - Joseph B. Wirthlin"
+    };
 
     public QuestManager()
     {
         Score = 0;
+    }
+
+    public void DisplayRandomQuote()
+    {
+        Random rand = new Random();
+        int index = rand.Next(quotes.Count);
+        Console.WriteLine($"{quotes[index]}");
     }
 
     public void CreateGoal()
@@ -130,6 +149,7 @@ public class QuestManager
             Score += pointsEarned;
 
             Console.WriteLine($"You earned {pointsEarned} points!");
+            DisplayRandomQuote(); // Show a motivational quote
         }
         else
         {

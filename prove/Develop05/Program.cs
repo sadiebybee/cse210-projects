@@ -15,6 +15,8 @@ class Program
 
         QuestManager questManager = new QuestManager();
 
+        questManager.DisplayRandomQuote(); // Show motivational quote at startup
+
         bool running = true;
         while (running)
         {
