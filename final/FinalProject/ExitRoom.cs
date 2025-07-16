@@ -4,7 +4,7 @@ public class ExitRoom : Room
 
     public ExitRoom()
     {
-        Name = "Final Room";
+        SetName("Final Room");
 
         finalPuzzles = new Puzzle[]
         {
@@ -16,14 +16,18 @@ public class ExitRoom : Room
 
     public override void Enter(Player player)
     {
-        Console.WriteLine("You've entered the Final Room.");
-        Console.WriteLine("To escape, solve three final puzzles:\n");
+        Console.WriteLine($"You have entered the {GetName()}.");
+        Console.WriteLine("At last, you find a heavy iron door with ancient symbols.");
+        Console.WriteLine("A voice booms from above:");
+        Console.WriteLine("\"Prove yourself one final time to earn your freedom.\"\n");
 
-        foreach (var puzzle in finalPuzzles)
+        foreach (Puzzle puzzle in finalPuzzles)
         {
-            puzzle.Ask();
+            puzzle.Ask(player);
         }
 
-        Console.WriteLine($"Congratulations, {player.Name}! You've escaped the maze!\n");
+        Console.WriteLine("You emerge into daylight, breathless and worn.");
+        Console.WriteLine($"Final Health: {player.GetHealthDisplay()}");
+        Console.WriteLine("The maze fades into mist behind you. You have survived.");
     }
 }

@@ -20,16 +20,20 @@ public class WordScramblePuzzle : Puzzle
         scrambleIndex++;
     }
 
-    public override void Ask()
+    public override void Ask(Player player)
     {
-        Console.WriteLine("Word Scramble Puzzle:");
+        Console.WriteLine("You find a scroll on the wall, the letters jumbled mysteriously:");
         Console.WriteLine(Question);
         Console.Write("> ");
-        string input = Console.ReadLine()?.Trim().ToLower();
+        string input = Console.ReadLine();
 
         if (input == Answer)
             Console.WriteLine("Correct!\n");
         else
-            Console.WriteLine($"Incorrect. The correct answer was: {Answer}\n");
+        {
+            Console.WriteLine($"Incorrect. The correct answer was: {Answer}");
+            player.TakeDamage(10);
+            Console.WriteLine($"You lost 10 HP. Current Health: {player.GetHealthDisplay()}\n");
+        }
     }
 }

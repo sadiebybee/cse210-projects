@@ -1,40 +1,39 @@
-using System;
-using System.Collections.Generic;
-
 public class RiddlePuzzle : Puzzle
 {
-    private List<(string question, string answer)> riddles;
     private static int riddleIndex = 0;
 
-    public RiddlePuzzle()
+    private List<(string question, string answer)> riddles = new List<(string, string)>
     {
-        riddles = new List<(string, string)>
-        {
-            ("What has keys but can't open locks?", "keyboard"),
-            ("What has a face and two hands, but no arms or legs?", "clock")
-        };
-    }
+        ("What has keys but can't open locks?", "keyboard"),
+        ("What has hands but can't clap?", "clock")
+    };
 
-    public override void Ask()
+    public RiddlePuzzle()
     {
         if (riddleIndex >= riddles.Count)
             riddleIndex = 0;
 
-        var currentRiddle = riddles[riddleIndex];
+        var current = riddles[riddleIndex];
+        Question = current.question;
+        Answer = current.answer;
+
         riddleIndex++;
+    }
 
-        Console.WriteLine("Puzzle:");
-        Console.WriteLine(currentRiddle.question);
+    public override void Ask(Player player)
+    {
+        Console.WriteLine("An echoing voice speaks from the shadows:");
+        Console.WriteLine("\"" + Question + "\"");
         Console.Write("> ");
-        string input = Console.ReadLine()?.ToLower();
+        string input = Console.ReadLine();
 
-        if (input == currentRiddle.answer)
-        {
-            Console.WriteLine("Correct! You may proceed.\n");
-        }
+        if (input == Answer)
+            Console.WriteLine("Correct!\n");
         else
         {
-            Console.WriteLine($"Incorrect. The correct answer was: {currentRiddle.answer}\n");
+            Console.WriteLine($"Incorrect. The correct answer was: {Answer}");
+            player.TakeDamage(10);
+            Console.WriteLine($"You lost 10 HP. Current Health: {player.GetHealthDisplay()}\n");
         }
     }
 }

@@ -1,7 +1,6 @@
 public abstract class Puzzle
 {
-    public string Question { get; set; }
-    public string Answer { get; set; }
-
-    public abstract void Ask();
+    protected string Question;
+    protected string Answer;
+    public abstract void Ask(Player player);
 }

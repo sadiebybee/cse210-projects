@@ -20,16 +20,20 @@ public class SequencePuzzle : Puzzle
         sequenceIndex++;
     }
 
-    public override void Ask()
+    public override void Ask(Player player)
     {
         Console.WriteLine("Sequence Puzzle:");
         Console.WriteLine(Question);
         Console.Write("> ");
-        string input = Console.ReadLine()?.Trim();
+        string input = Console.ReadLine();
 
         if (input == Answer)
             Console.WriteLine("Correct!\n");
         else
-            Console.WriteLine($"Incorrect. The correct answer was: {Answer}\n");
+        {
+            Console.WriteLine($"Incorrect. The correct answer was: {Answer}");
+            player.TakeDamage(10);
+            Console.WriteLine($"You lost 10 HP. Current Health: {player.GetHealthDisplay()}\n");
+        }
     }
 }
